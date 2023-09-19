@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 683077165690808900}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -100,6 +100,8 @@ GameObject:
   - component: {fileID: 2083597944805074691}
   - component: {fileID: 1454762275428347453}
   - component: {fileID: 4342610490422774415}
+  - component: {fileID: 7935701783801878860}
+  - component: {fileID: 6490309236496926043}
   m_Layer: 7
   m_Name: Agent
   m_TagString: Untagged
@@ -133,7 +135,7 @@ BoxCollider2D:
   m_GameObject: {fileID: 2689893124509119938}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 0}
+  m_Material: {fileID: 6200000, guid: 4514a7666cb7ac243979d912b095239a, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -184,7 +186,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 3
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -210,7 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   xAxis: 1
   yAxis: 0
-  speed: 4
+  speed: 6
 --- !u!114 &1176520640556732949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -224,9 +226,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   feet: {fileID: 1812544542816238904}
-  force: 7
-  time: 0.7
-  radius: 0.2
+  force: 8
+  time: 0.32
+  radius: 0.1
   groundMask:
     serializedVersion: 2
     m_Bits: 64
@@ -288,8 +290,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a5c9d521e5ef4759a8246a07d52221e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DecisionPeriod: 5
+  DecisionPeriod: 1
   TakeActionsBetweenDecisions: 1
+--- !u!114 &7935701783801878860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2689893124509119938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dacb12d39d110294c89612c545bb09b7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6490309236496926043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2689893124509119938}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f67c7e722ba14acd9153bb4488bff6e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SensorName: UpSensor
+  m_DetectableTags:
+  - Wall
+  - Platform
+  - Collectable
+  m_RaysPerDirection: 7
+  m_MaxRayDegrees: 120
+  m_SphereCastRadius: 0.5
+  m_RayLength: 20
+  m_RayLayerMask:
+    serializedVersion: 2
+    m_Bits: 832
+  m_ObservationStacks: 2
+  rayHitColor: {r: 1, g: 0, b: 0, a: 1}
+  rayMissColor: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1 &3370127588420884753
 GameObject:
   m_ObjectHideFlags: 0

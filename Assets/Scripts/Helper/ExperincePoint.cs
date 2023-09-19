@@ -6,13 +6,14 @@ namespace Helper{
     public class ExperincePoint : MonoBehaviour,ICollectable
     {
         public CollectableType Type =>type;
+        public GameObject GameObject{get=>gameObject;}
         public float Value =>value;
 
         [SerializeField] private CollectableType type;
         [SerializeField] private float value;
 
         public void Collect(){
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
     }
 }

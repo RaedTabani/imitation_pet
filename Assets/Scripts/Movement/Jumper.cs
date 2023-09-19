@@ -18,7 +18,6 @@ namespace Movement{
         void Start()
         {
             rb = GetComponent<Rigidbody2D>();
-
             counter =0;
         }
 
@@ -28,7 +27,6 @@ namespace Movement{
                 return;
             }
 
-            Debug.Log($" GROUNDED {IsGrounded() } {value}");
             if(IsGrounded()){
                 isJumping = true;
                 counter = time;
@@ -37,12 +35,16 @@ namespace Movement{
             else if(isJumping){
                 if(counter >0){
                     rb.velocity = new Vector2(rb.velocity.x, force);
-                    counter -=Time.deltaTime;    
+                    //counter -=Time.deltaTime;    
                 }
                 else{
                     isJumping = false;
                 }
             }
+        }
+
+        private void Update(){
+            counter -=Time.deltaTime;
         }
 
         private bool IsGrounded(){

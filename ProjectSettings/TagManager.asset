@@ -4,8 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - ship
-  - asteroid
+  - Wall
+  - Zone
+  - Collectable
+  - Platform
   layers:
   - Default
   - TransparentFX
@@ -15,8 +17,8 @@ TagManager:
   - UI
   - Ground
   - Player
-  - 
-  - 
+  - Wall
+  - Collectable
   - 
   - 
   - 

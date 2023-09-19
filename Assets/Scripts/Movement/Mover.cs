@@ -26,8 +26,12 @@ namespace Movement{
             if(yAxis)
                 velocity += new Vector2(0,direction.y);
 
-            //Debug.Log($"{direction.x} {velocity.x}");
             rb.velocity = new Vector2(velocity.x * speed,rb.velocity.y);
+        }
+
+        public void ResetVelocity(){
+            rb.velocity = Vector2.zero;
+            rb.angularVelocity = 0;
         }
     }
 }
